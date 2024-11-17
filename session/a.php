@@ -1,6 +1,6 @@
 <?php
 // Generování náhodné hodnoty
-$randomNumber = rand(1, 100);
+$randomNumber = rand(1, 10000);
 
 // Spuštění session pro použití session proměnných
 session_start();
