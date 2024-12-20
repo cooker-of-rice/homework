@@ -41,17 +41,11 @@ POLOZ B
 
 ---
 
-## Verze 1: HTML, CSS a JavaScript
+## HTML, CSS a JavaScript
 
 ### Popis
 
 Aplikace běží kompletně na straně klienta v prohlížeči. Příkazy jsou zpracovány v JavaScriptu a herní pole je aktualizováno přímo v DOMu.
-
-### Použití
-
-1. Otevřete soubor `karel_client.html` v prohlížeči.
-2. Do textového pole zadejte příkazy a klikněte na tlačítko **Proveď**.
-3. Herní pole se okamžitě aktualizuje dle zadaných příkazů.
 
 ### Skript: karel_client.html
 
@@ -159,7 +153,7 @@ Aplikace běží kompletně na straně klienta v prohlížeči. Příkazy jsou z
 
 ---
 
-## Verze 2: HTML, CSS a PHP
+## HTML, CSS a PHP
 
 ### Popis
 
