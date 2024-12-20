@@ -11,23 +11,21 @@ Aplikace umožňuje ovládat jednoduchého robota Karla pomocí textových pří
 
 ## Funkce a příkazy
 
-- **KROK**: Karel se posune o zadaný počet kroků ve směru svého natočení. Pokud není uveden parametr, provede jeden krok. Například:
+- **KROK**: Karel se posune o zadaný počet kroků ve směru svého natočení. Pokud není uvedeno, provede jeden krok. Například:
 
   - `KROK 4` (4 kroky vpřed)
   - `KROK` (1 krok vpřed)
 
-- **VLEVOBOK**: Karel se otočí doleva o 90° zadaný početkrát. Pokud není uveden parametr, otočí se jednou. Například:
+- **VLEVOBOK**: Karel se otočí doleva o 90° zadaný početkrát. Pokud není uvedeno, otočí se jednou. Například:
 
   - `VLEVOBOK 2` (otočení o 180°)
   - `VLEVOBOK` (otočení o 90°)
 
-- **POLOZ**: Položí na aktuální pozici parametr příkazu (např. písmeno nebo barvu). Například:
+- **POLOZ**: Položí na aktuální pozici příkazu (např. písmeno nebo barvu). Například:
 
   - `POLOZ A` (položí písmeno "A" na aktuální pozici)
 
 - **RESET**: Vyčistí herní pole a nastaví Karla do výchozí pozice (levý horní roh, natočen doprava).
-
-Příkazy je možné zadávat velkými nebo malými písmeny, přičemž každý příkaz musí být na nové řádce.
 
 ### Ukázkový vstup:
 
