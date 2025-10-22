@@ -1,0 +1,166 @@
+/**
+ * Normalize.css v8.0.1
+ * Forked from the original Normalize.css created by Nicolas Gallagher and Jonathan Neal
+ * Released under the MIT license - https://opensource.org/licenses/MIT
+ */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the inheritance of text transform in Edge and Firefox.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ */
+button,
+input { /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+/* Address style set to "unset" in Edge 18+, Firefox 68+, and Safari. */
+a {
+  text-decoration: none;
+}
+
+/* Add border on hover */
+a:hover {
+  text-decoration: underline;
+}
+
+/* Add focus styles */
+a:focus {
+  outline: thin dotted;
+}
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ * 3. Add the correct text decoration in Firefox.
+ * 4. Add the correct text decoration in Edge Legacy.
+ */
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 3 */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #5faee3, #54d98c);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: transparent;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+main .category {
+  width: 100%;
+  margin-bottom: 30px;
+}
+main .category h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+main .category .items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+main .category .item {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+main .category .item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+main .category .item img {
+  width: 100%;
+  border-radius: 10px;
+}
+main .category .item h3 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #3498db;
+}
+main .category .item p {
+  margin-bottom: 0;
+  font-size: 1.1em;
+}
+
+footer {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+  font-size: 0.9em;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    align-items: flex-start;
+  }
+  .item {
+    width: calc(50% - 20px);
+  }
+}/*# sourceMappingURL=styles.css.map */

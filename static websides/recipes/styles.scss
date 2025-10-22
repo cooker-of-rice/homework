@@ -1,0 +1,109 @@
+// variables
+$primary-color: #3498db;       // světle modrá
+$secondary-color: #2ecc71;     // světle zelená
+
+// Import normalize.css
+@import 'normalize';
+
+// nesting
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, lighten($primary-color, 10%), lighten($secondary-color, 10%)); // lineární gradient
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: transparent; // průhledné pozadí pro lepší sladění s gradientem
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; // zarovnání do středu
+    margin-top: 20px;
+    
+    .category {
+        width: 100%;
+        margin-bottom: 30px;
+        
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .items {
+            display: flex;
+            justify-content: center; // zarovnání do středu
+            flex-wrap: nowrap; // zajištění, aby se položky umísťovaly vedle sebe a případně posunuly na další řádek
+        }
+        
+        .item {
+            width: calc(33.33% - 20px); // šířka 33.33% pro tři sloupce s mezerou mezi nimi
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+            
+            h3 {
+                margin-top: 0;
+                font-size: 1.5em;
+                color: $primary-color;
+            }
+            
+            p {
+                margin-bottom: 0;
+                font-size: 1.1em;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: transparent; // průhledné pozadí pro lepší sladění s gradientem
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+// styling header and footer
+header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+// Media queries for responsiveness
+@media screen and (max-width: 768px) {
+    main {
+        align-items: flex-start; // zarovnání položek na začátek
+    }
+    
+    .item {
+        width: calc(50% - 20px); // šířka 50% pro dva sloupce s mezerou mezi nimi
+    }
+}

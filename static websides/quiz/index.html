@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vědomostní kvíz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vědomostní kvíz</h1>
+            <p class="description">Pokud to nedáš tak jsi blbější jak šesťák.</p>
+        </header>
+
+        <form id="quiz-form">
+            <section class="question-section">
+                <h2 class="question">1. Které město je hlavním městem Austrálie?</h2>
+                <div class="options">
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q1" value="a">
+                            <span>Sydney</span>
+                        </label>
+                        <div class="answer-feedback incorrect">Špatně! Sydney je největší město Austrálie, ale není hlavním městem.</div>
+                    </div>
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q1" value="b">
+                            <span>Melbourne</span>
+                        </label>
+                        <div class="answer-feedback incorrect">Špatně! Melbourne je druhé největší město Austrálie.</div>
+                    </div>
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q1" value="c" data-correct="true">
+                            <span>Canberra</span>
+                        </label>
+                        <div class="answer-feedback correct">Správně! Canberra je hlavním městem Austrálie.</div>
+                    </div>
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q1" value="d">
+                            <span>Perth</span>
+                        </label>
+                        <div class="answer-feedback incorrect">Špatně! Perth leží na západním pobřeží Austrálie.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="question-section">
+                <h2 class="question">2. Kdo napsal román "1984"?</h2>
+                <div class="options">
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q2" value="a">
+                            <span>J.R.R. Tolkien</span>
+                        </label>
+                        <div class="answer-feedback incorrect">Špatně! J.R.R. Tolkien napsal Pána prstenů.</div>
+                    </div>
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q2" value="b" data-correct="true">
+                            <span>George Orwell</span>
+                        </label>
+                        <div class="answer-feedback correct">Správně! George Orwell je autorem románu 1984.</div>
+                    </div>
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q2" value="c">
+                            <span>Aldous Huxley</span>
+                        </label>
+                        <div class="answer-feedback incorrect">Špatně! Aldous Huxley napsal Brave New World (Konec civilizace).</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="question-section">
+                <h2 class="question">3. Jaká je chemická značka zlata?</h2>
+                <div class="options">
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q3" value="a">
+                            <span>Ag</span>
+                        </label>
+                        <div class="answer-feedback incorrect">Špatně! Ag je značka stříbra (Argentum).</div>
+                    </div>
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q3" value="b" data-correct="true">
+                            <span>Au</span>
+                        </label>
+                        <div class="answer-feedback correct">Správně! Au je značka zlata (Aurum).</div>
+                    </div>
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q3" value="c">
+                            <span>Fe</span>
+                        </label>
+                        <div class="answer-feedback incorrect">Špatně! Fe je značka železa (Ferrum).</div>
+                    </div>
+                    <div class="option">
+                        <label>
+                            <input type="radio" name="q3" value="d">
+                            <span>Cu</span>
+                        </label>
+                        <div class="answer-feedback incorrect">Špatně! Cu je značka mědi (Cuprum).</div>
+                    </div>
+                </div>
+            </section>
+
+            <button type="submit" id="submit-btn">Odeslat odpovědi</button>
+        </form>
+
+        <section id="results">
+
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --light-color: #f5f7fa;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --neutral-color: #6c757d;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-color);
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.description {
+    color: var(--neutral-color);
+    font-size: 1.1em;
+}
+
+.question-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-left: 5px solid var(--primary-color);
+    background-color: #f9f9f9;
+}
+
+.question {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #e9ecef;
+}
+
+.option label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.option input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.option input[type="radio"]:checked + span {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#results {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    display: none;
+}
+
+.success {
+    background-color: rgba(40, 167, 69, 0.2);
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+}
+
+.failure {
+    background-color: rgba(220, 53, 69, 0.2);
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+}
+
+.answer-feedback {
+    margin-top: 5px;
+    font-weight: bold;
+    display: none;
+}
+
+.correct {
+    color: var(--success-color);
+}
+
+.incorrect {
+    color: var(--error-color);
+}
