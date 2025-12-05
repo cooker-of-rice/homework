@@ -1,4 +1,4 @@
 věcičky: 
-kombo násobý scóre kdy 95% schoda, 
+kombo násobý scóre když 95% schoda, 
 scoreboard,
 retro overlay
