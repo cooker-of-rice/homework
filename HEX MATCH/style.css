@@ -1,0 +1,277 @@
+/* RETRO FONT */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --retro-blue: #00FFFF;
+    --retro-green: #00FF00;
+    --retro-red: #FF0000;
+    --retro-yellow: #FFFF00;
+    --dark-bg: #111111;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+    color: var(--retro-green);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden { display: none !important; }
+
+/* --- CRT EFFECT (SCANLINES) --- */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    ), linear-gradient(
+        90deg, 
+        rgba(255, 0, 0, 0.06), 
+        rgba(0, 255, 0, 0.02), 
+        rgba(0, 0, 255, 0.06)
+    );
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none; /* Kliknutí prochází skrz */
+    z-index: 999; /* Vždy nahoře */
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.95; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.95; }
+}
+
+/* --- EFFECTS (Particles & Floating Text) --- */
+#effects-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    box-shadow: 0 0 5px white;
+    pointer-events: none;
+}
+
+.floating-text {
+    position: absolute;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--retro-yellow);
+    text-shadow: 2px 2px 0 #000;
+    pointer-events: none;
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-50px) scale(1.2); opacity: 0; }
+}
+
+/* --- LAYOUT & HUD --- */
+#game-container {
+    width: 90vw; 
+    max-width: 1000px;
+    height: 90vh; 
+    max-height: 700px;
+    background-color: var(--dark-bg);
+    border: 10px solid var(--retro-blue);
+    position: relative; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 50px var(--retro-blue); /* Záře kolem automatu */
+}
+
+#hud-top-layout {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.stat-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 15px;
+    border: 2px solid var(--retro-green);
+    border-radius: 10px; 
+    text-align: center;
+    white-space: nowrap;
+}
+
+#combo-box {
+    border-color: var(--retro-yellow);
+    color: var(--retro-yellow);
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* --- MAIN GAME WINDOW --- */
+#main-game-window {
+    width: 80%;
+    height: 55%;
+    background-color: #FFFFFF;
+    border: 5px solid var(--retro-blue);
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease-in-out; 
+}
+
+#player {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 50%; 
+    border: 5px solid var(--retro-red);
+    transition: background-color 0.1s, border-color 0.1s; 
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* --- INPUTS --- */
+#input-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.target-box { margin-bottom: 10px; font-size: 1.2em; }
+
+#input-panel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    pointer-events: all;
+}
+
+.rgb-input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hex-component-input {
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid var(--retro-green);
+    background-color: var(--dark-bg);
+    color: white;
+    width: 60px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#r-input { color: var(--retro-red); }
+#g-input { color: var(--retro-green); }
+#b-input { color: var(--retro-blue); }
+
+#change-color-button {
+    padding: 15px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: var(--retro-green);
+    color: var(--dark-bg);
+    border: 3px solid var(--retro-blue);
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: 5px 5px 0 var(--retro-red); 
+    transition: all 0.1s ease;
+}
+
+#change-color-button:active {
+    box-shadow: 0 0 0 var(--retro-red);
+    transform: translate(5px, 5px); 
+}
+
+#change-color-button:hover {
+    background-color: var(--retro-blue);
+    color: var(--dark-bg);
+}
+
+/* --- OVERLAYS --- */
+#start-overlay, #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#start-box, #game-over-box {
+    background-color: var(--dark-bg);
+    border: 5px solid var(--retro-blue);
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 30px var(--retro-blue);
+}
+
+#player-name-input {
+    padding: 10px;
+    margin: 20px 0;
+    border: 2px solid var(--retro-green);
+    background-color: var(--dark-bg);
+    color: white;
+    text-align: center;
+}
+
+#start-game-button, #game-over-box button {
+    padding: 10px 20px;
+    background-color: var(--retro-green);
+    color: var(--dark-bg);
+    border: none;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--retro-red);
+}
+
+#leaderboard-box {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px dashed var(--retro-green);
+    font-size: 0.8em;
+    text-align: left;
+    min-width: 300px;
+}
+.leaderboard-entry { display: flex; justify-content: space-between; margin-bottom: 5px; }
