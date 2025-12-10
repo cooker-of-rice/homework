@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-    <h1>Chat s AI (Čisté PHP)</h1>
+    <h1>Chat s AI</h1>
 
     <div class="chat-container">
         <div class="chat-box" id="chatBox">
@@ -139,4 +139,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 
 </body>
-</html>
+</html> prosím upravit frontend
