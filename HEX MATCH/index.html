@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEX MATCH: Arcade Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="start-overlay">
+        <div id="start-box">
+            <h2>HEX MATCH: ARCADE</h2>
+            <p>Zadejte jméno pro start.</p>
+            <input type="text" id="player-name-input" placeholder="Tvé jméno" maxlength="15">
+            <button id="start-game-button">SPUSTIT HRU</button>
+            <p id="name-feedback" style="color: var(--retro-red); font-size: 0.8em; margin-top: 10px;"></p>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
+        
+        <div id="hud-top-layout">
+            <div class="stat-box">HP <span id="lives">100</span></div>
+            <div class="stat-box">TIME: <span id="timer">00:00</span></div>
+            <div class="stat-box">SCORE: <span id="score">0</span></div>
+            <div class="stat-box" id="combo-box" style="display: none; color: yellow;">COMBO x<span id="combo-count">0</span></div>
+        </div>
+
+        <div id="main-game-window">
+            <div id="player" style="background-color: #FFFFFF;"></div> 
+        </div>
+
+        <div id="input-section">
+            <div class="stat-box target-box">
+                TARGET: <span id="announced-color">#FFFFFF</span>
+            </div>
+            <div id="input-panel">
+                <div class="rgb-input-group">
+                    <label style="color: var(--retro-red);">R:</label>
+                    <input type="text" class="hex-component-input" id="r-input" maxlength="2" placeholder="FF" value="FF">
+                </div>
+                <div class="rgb-input-group">
+                    <label style="color: var(--retro-green);">G:</label>
+                    <input type="text" class="hex-component-input" id="g-input" maxlength="2" placeholder="FF" value="FF">
+                </div>
+                <div class="rgb-input-group">
+                    <label style="color: var(--retro-blue);">B:</label>
+                    <input type="text" class="hex-component-input" id="b-input" maxlength="2" placeholder="FF" value="FF">
+                </div>
+                <button id="change-color-button">ZAMKNOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" class="hidden">
+        <div id="game-over-box">
+            <h2 id="end-message">HRÁČ PORAŽEN!</h2>
+            <h3>VÝSLEDEK</h3>
+            <p>PŘEŽITÍ: <span id="final-time"></span></p>
+            <p>SKÓRE: <span id="final-score"></span></p>
+            <p>POZICE: <span id="final-rank">N/A</span></p>
+            <h3 style="margin-top: 30px;">TOP 10</h3>
+            <div id="leaderboard-box"></div>
+            <button onclick="window.location.reload()">RESTART (F5)</button>
+        </div>
+    </div>
+
+    <div class="crt-overlay"></div>
+    
+    <div id="effects-container"></div>
+
+    <script src="game.js"></script>
+</body>
+</html>
