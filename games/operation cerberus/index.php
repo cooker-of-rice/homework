@@ -74,6 +74,7 @@ foreach ($lines as $line){
            'name'=>$name;
            'size'=>$size;
            'credits' => $credits;
+           'eficiency' => $eficiency;
          ]
 
     }
