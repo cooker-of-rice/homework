@@ -1,5 +1,5 @@
 <?php 
-$rawData = '[FILE] system_kernel_dump.log | Size: 120 MB | Val: 50 Credits
+$data = '[FILE] system_kernel_dump.log | Size: 120 MB | Val: 50 Credits
 [FILE] user_passwords_encrypted.db | Size: 45 MB | Val: 3500 Credits
 [FILE] project_chimera_schemas.pdf | Size: 15 MB | Val: 800 Credits
 [FILE] cafe_menu.png | Size: 2 MB | Val: 5 Credits
@@ -60,24 +60,53 @@ $rawData = '[FILE] system_kernel_dump.log | Size: 120 MB | Val: 50 Credits
 [FILE] chat_logs_developers.txt | Size: 75 MB | Val: 2200 Credits
 [FILE] invoice_template.dotx | Size: 2 MB | Val: 10 Credits
 ';
-$file = [ ];
-$lines = explode("\n", $rawData);
+$files = [];
+$speed = 20;
+$limit = 300; 
 
-foreach ($lines as $line){
-    if (preg_match('/\[FILE\] (.*?) \| Size: (\d+) MB \|.*?Val: (\d+) Credits/', $line, $matches)) {
-        $name =$matches[1];
-        $size = (int) $matches[2];
-        $credits = (int) $matches[3];
-
-        $efectivity = $size/$credits;
-        $files[ ]= (object)[
-           'name'=>$name;
-           'size'=>$size;
-           'credits' => $credits;
-           'eficiency' => $eficiency;
-         ]
-
+foreach (explode("\n", $data) as $line) {
+    if (preg_match('/\[FILE\] (.*) \| Size: (\d+) MB \| Val: (\d+) Credits/', $line, $m)) {
+        $files[] = [
+            'name'  => $m[1],
+            'time'  => (int)$m[2] / $speed, 
+            'value' => (int)$m[3]
+        ];
     }
 }
+
+
+$memo = [];
+
+function solve($idx, $timeLeft, $files, &$memo) {
+    $state = "$idx-$timeLeft";
+    if (isset($memo[$state])) return $memo[$state];
+
+
+    if ($idx < 0 || $timeLeft <= 0) return ['val' => 0, 'list' => []];
+
+    $current = $files[$idx];
+
+    $resLeave = solve($idx - 1, $timeLeft, $files, $memo);
+
+
+    $resTake = ['val' => -1];
+    if ($current['time'] <= $timeLeft) {
+        $resTake = solve($idx - 1, $timeLeft - $current['time'], $files, $memo);
+        $resTake['val'] += $current['value'];
+        $resTake['list'][] = $current['name'];
+    }
+
+
+    $result = ($resTake['val'] > $resLeave['val']) ? $resTake : $resLeave;
+    
+    $memo[$state] = $result;
+    return $result;
+}
+$solution = solve(count($files) - 1, $limit, $files, $memo);
+
+echo "--- OPERACE BLACKOUT: VÝSLEDEK ---\n";
+echo "Vybrané soubory:\n - " . implode("\n - ", $solution['list']) . "\n";
+echo "Celková hodnota: " . $solution['val'] . " Credits\n";
+echo "Spotřebovaný čas: " . (300 - (300 - array_sum(array_map(fn($f) => in_array($f['name'], $solution['list']) ? $f['time'] : 0, $files)))) . " s\n";
 
 ?>
