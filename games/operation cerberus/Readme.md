@@ -8,3 +8,6 @@
 4. vezmeme to od špičky až té doby co se mi nevejde do 300s 
 5. vytiskne výsledná data
 
+## výsledek
+
+

@@ -66,8 +66,16 @@ $lines = explode("\n", $rawData);
 foreach ($lines as $line){
     if (preg_match('/\[FILE\] (.*?) \| Size: (\d+) MB \|.*?Val: (\d+) Credits/', $line, $matches)) {
         $name =$matches[1];
-        $size = (int) $matches[3];
-        
+        $size = (int) $matches[2];
+        $credits = (int) $matches[3];
+
+        $efectivity = $size/$credits;
+        $files[ ]= (object)[
+           'name'=>$name;
+           'size'=>$size;
+           'credits' => $credits;
+         ]
+
     }
 }
 
