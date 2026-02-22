@@ -9,7 +9,6 @@ CREATE TABLE services_running_on_servers (
     domain VARCHAR(255) NULL,
     IPv4 VARCHAR(15) NULL,
     port INT NULL,
-    -- Tady jsou ty chybějící kousky:
     deployed_at DATE NOT NULL DEFAULT (CURRENT_DATE),
     status ENUM('Installed', 'Started', 'Running', 'Stopped', 'Failed') NOT NULL DEFAULT 'Installed',
 
@@ -24,7 +23,6 @@ CREATE TABLE services_running_on_servers (
 
 ### Data pro insert
 ```sql
--- Ukázka pro srv-web-01 a Nginx
 INSERT INTO services_running_on_servers 
 (servers_id, services_id, deployed_at, status) 
 VALUES 
@@ -48,8 +46,8 @@ WHERE sros.status = 'Failed';
 
 | `servers` |  | `services_running_on_servers` |  | `services` |
 | --- | --- | --- | --- | --- |
-| **id** (PK) | --||--o< | **servers_id** (FK, PK) |  | **id** (PK) |
-| name |  | **services_id** (FK, PK) | >o--||-- | name |
+| **id** (PK) | || | **servers_id** (FK, PK) |  | **id** (PK) |
+| name |  | **services_id** (FK, PK) ||-- | name |
 | os |  | domain |  | s_type |
 | os_ver |  | IPv4 / IPv6 |  | s_ver |
 |  |  | port / protocol |  |  |
