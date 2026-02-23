@@ -18,7 +18,7 @@ class Ukol {
     }
 }
 
-// pole 
+// pole  
 $seznamUkolu = [];
 
 // volání
