@@ -33,7 +33,7 @@ $knihovna[] = new Kniha("Malý princ", 96);
 $knihovna[] = new Kniha("Stopařův průvodce", 160);
 $knihovna[] = new Kniha("Haiku", 15);
 
-// výpis
+// výpis 
 echo "--- Seznam knih v knihovně ---<br>";
 foreach ($knihovna as $kniha) {
     echo $kniha->vypisInfo() . "<br>";
