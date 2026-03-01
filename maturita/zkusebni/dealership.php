@@ -1,8 +1,8 @@
 <?php
 class car{
-private string $brand;
-private int $mileage;
-private bool $isAvailable;
+public string $brand;
+public int $mileage;
+public bool $isAvailable;
 
     public function __construct (string $brand, int $mileage, bool $isAvailable){
         $this->brand=$brand;
