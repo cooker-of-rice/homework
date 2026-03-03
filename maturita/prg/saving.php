@@ -31,7 +31,7 @@ usort($list, function(){
 });
 $creds=0;
 $curentSize=400;
-$stolenData=[];//hacker by to asi tak nepojmenoval
+$stolenData=[]
 foreach($list as $document){
     if ($document->size<=$curentSize){
         $curentSize-=$document->size;
