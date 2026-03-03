@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cinema</title>
+</head>
+<body>
+
+
+    <style>
+        body{
+            text-align: center;
+        }
+        .tickets{
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .ticket{
+            border: 1px solid black;
+            border-radius: 10%;
+            width: 150px;
+            padding: 1%;
+            
+            
+        }
+        .red{
+            background-color: red;
+            color:white;
+        }
+        
+        .green{
+            border-radius: 10%;
+            background-color: green;
+        }
+        @media (max-width: 600px) {
+            .tickets{
+            flex-direction: column;
+            align-items: center;
+           
+        }
+        .ticket{
+            width: 80%;
+        }
+        }
+    </style>
+    <script>
+        const student = 120;
+        const standard = 180;
+        const senior = 100;
+
+        let studentAmount=0;
+        let standardAmount=0;
+        let seniorAmount=0;
+        let total = 0;
+        function addTicket(typ){
+           switch(typ){
+            case 'student':
+                total+=student;
+                studentAmount+=1;
+                document.getElementById('count-student').innerText=studentAmount;
+            break;
+            case 'standard':
+                total+=standard;
+                standardAmount+=1;
+                document.getElementById('count-standard').innerText=standardAmount;
+            break;
+            case 'senior':
+                total+=senior;
+                seniorAmount+=1;
+                document.getElementById('count-senior').innerText=seniorAmount;
+            break;
+           }
+           document.getElementById('sale').innerText=total;
+        }
+        function reset(){
+            studentAmount=0;
+            standardAmount=0;
+            seniorAmount=0;
+            total=0;
+            document.getElementById('count-student').innerText=studentAmount;
+            document.getElementById('count-standard').innerText=standardAmount;
+            document.getElementById('count-senior').innerText=seniorAmount;
+            document.getElementById('sale').innerText=total;
+           }
+    </script>
+    <h2>tickets</h2>
+    <p>Total:<span id="sale"></span></p>
+
+    <div class="tickets">
+        <div class="ticket">
+            <p>student</p>
+            <p>120 Kč</p>
+            <button class="green" onclick="addTicket('student')">add</button>
+            <p>Sold: <span id="count-student">0</span> ks</p>
+        </div>
+        <div class="ticket">
+            <p>standard</p>
+            <p>180 Kč</p>
+            <button class="green" onclick="addTicket('standard')">add</button>
+            <p>Sold: <span id="count-standard">0</span> ks</p>
+        </div>
+        <div class="ticket">
+            <p>senior</p>
+            <p>100 Kč</p>
+            <button class="green" onclick="addTicket('senior')">add</button>
+            <p>Sold: <span id="count-senior">0</span> ks</p>
+        </div>
+
+    </div>
+     <button class="red" onclick="reset()">reset</button>
+
+
+    
+</body>
+</html>
