@@ -26,7 +26,7 @@ foreach ($lines as $line){
 
     $list[]=new document($name, $size, $value);
 }
-usort($list, function(){
+usort($list, function($a, $b){
     return $b->getEfectivity() <=> $a->getEfectivity();
 });
 $creds=0;
