@@ -36,6 +36,3 @@ def main():
     print(f"Obvod kružnice:  {circ:.4f}")
     print(f"Obvod obdélníku:  {rect:.4f}")
 
-
-if __name__ == "__main__":
-    main()
