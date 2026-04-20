@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function addCard(){
+            let name = document.getElementById('userInput').value;
+
+            let newCard=document.createElement('div');
+
+            newCard.innerText=name;
+
+            let btn=document.createElement('button');
+
+            btn.innerText='x';
+
+            newCard.appendChild(btn);
+
+            btn.onclick= function(){newCard.remove();};
+
+            newCard.className='cards';
+
+            document.getElementById('card-container').appendChild(newCard);
+        }
+    </script>
+    
+    <input type="text" id="userInput">
+    <button id="addItem" onclick="addCard()">add</button>
+    <div id="card-container">
+        <div class="cards">
+
+        </div>
+    </div>
+</body>
+</html>
